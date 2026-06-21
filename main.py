@@ -87,8 +87,18 @@ import pygame
 
 pygame.init()
 
-tela = pygame.display.set_mode((800, 600))
-pygame.display.set_caption("Dinamite Racha")
+LARGURA = 800
+ALTURA = 600
+
+fundo = pygame.image.load(
+    "assets/imagens/dinamite.png"
+)
+
+fundo = pygame.transform.scale(
+    fundo,
+    
+    (LARGURA, ALTURA)
+)
 
 rodando = True
 
@@ -99,7 +109,7 @@ while rodando:
         if evento.type == pygame.QUIT:
             rodando = False
 
-    tela.fill((0, 0, 0))
+    tela.blit(fundo, (0,0))
 
     pygame.display.flip()
 
