@@ -1,38 +1,28 @@
-# jogador.py
-
 import pygame
 
 
 class Jogador:
 
-    def __init__(self,imagem, x, y):
+    def __init__(self, personagem):
 
-        self.sprite = pygame.image.load(imagem)
+        imagens = {
 
-        self.x = x
-        self.y = y
+            1: "assets/imagens/jogador1.png",
+            2: "assets/imagens/jogador2.png"
+        }
+
+        self.imagem = pygame.image.load(
+            imagens[personagem]
+        )
+
+        self.x = 350
+        self.y = 500
 
         self.velocidade = 6
-
-    def mover(self):
-
-        teclas = pygame.key.get_pressed()
-
-        if teclas[pygame.K_w]:
-            self.y -= self.velocidade
-
-        if teclas[pygame.K_s]:
-            self.y += self.velocidade
-
-        if teclas[pygame.K_a]:
-            self.x -= self.velocidade
-
-        if teclas[pygame.K_d]:
-            self.x += self.velocidade
 
     def desenhar(self, tela):
 
         tela.blit(
-            self.sprite,
+            self.imagem,
             (self.x, self.y)
         )
