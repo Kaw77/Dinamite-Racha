@@ -98,6 +98,14 @@ fase4 = pygame.transform.scale(
     (LARGURA, ALTURA)
 )
 
+from src.jogador import Jogador
+
+jogador = Jogador(
+    "assets/imagens/jogador1.png",
+    350,
+    450
+)
+
 rodando = True
 
 while rodando:
@@ -110,5 +118,11 @@ while rodando:
     tela.blit(fundo, (0,0))
 
     pygame.display.flip()
+    
+    window.blit(fundo_menu, (0,0))
+
+jogador.desenhar(window)
+
+pygame.display.update()
 
 pygame.quit()

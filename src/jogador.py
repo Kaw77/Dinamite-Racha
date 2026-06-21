@@ -1,28 +1,29 @@
 import pygame
-
+import os
 
 class Jogador:
 
-    def __init__(self, personagem):
+    def __init__(self, imagem, x, y):
 
-        imagens = {
+        caminho = os.path.join(os.getcwd(), imagem)
 
-            1: "assets/imagens/jogador1.png",
-            2: "assets/imagens/jogador2.png"
-        }
+        if os.path.exists(caminho):
+            self.imagem = pygame.image.load(caminho).convert_alpha()
+            self.imagem = pygame.transform.scale(
+                self.imagem,
+                (64, 64)
+            )
+        else:
+            print("Imagem não encontrada:", caminho)
+            self.imagem = pygame.Surface((64, 64))
+            self.imagem.fill((255, 0, 0))
 
-        self.imagem = pygame.image.load(
-            imagens[personagem]
-        )
-
-        self.x = 350
-        self.y = 500
-
-        self.velocidade = 6
+        self.x = x
+        self.y = y
+        self.velocidade = 5
 
     def desenhar(self, tela):
+        tela.blit(self.imagem, (self.x, self.y))
 
-        tela.blit(
-            self.imagem,
-            (self.x, self.y)
-        )
+    def obter_rect(self):
+        return self.imagem.get_rect(topleft=(self.x, self.y))
