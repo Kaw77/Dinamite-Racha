@@ -40,6 +40,13 @@ clock = pygame.time.Clock()
 # Carregar musica e deixar ela tocando
 pygame.mixer.music.load("assets/sons/menu.mp3")
 pygame.mixer.music.play(-1)
+# Carregar o som da explosão
+explosion_sound = pygame.mixer.Sound("assets/sons/explosion.mp3")
+#importar sons para a fase 1, fase 2, fase 3 e fase 4
+fase1_sound = pygame.mixer.Sound("assets/sons/fase1.mp3")
+fase2_sound = pygame.mixer.Sound("assets/sons/fase2.mp3")
+fase3_sound = pygame.mixer.Sound("assets/sons/fase3.mp3")
+fase4_sound = pygame.mixer.Sound("assets/sons/fase4.mp3")
 
 #Ajustar o fps do jogo
 clock.tick(60)  
