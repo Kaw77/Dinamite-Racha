@@ -8,15 +8,28 @@ pygame.init()
 # Criação de janela do pygame
 window = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Dinamite Racha")
+print("Dinamite Racha - Dizendo: - Tchau...Tchau!")
+
+print("Prontos ou não, lá vamos nós...")
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
 
 # Carregar imagem e gerar um fundo
 surface = pygame.image.load("assets/imagens/dinamite.png")
+#importar a imagem para a fase 1, fase 2, fase 3 e fase 4
+surface_fase1 = pygame.image.load("assets/imagens/fase1.png")
+surface_fase2 = pygame.image.load("assets/imagens/fase2.png")
+surface_fase3 = pygame.image.load("assets/imagens/fase3.png")
+surface_fase4 = pygame.image.load("assets/imagens/fase4.png")
 
 # Obter o retângulo do fundo
 rect = surface.get_rect()
 
 # Desenhar na janela (window)
-window.blit(surface, rect)
+window.blit(surface, rect, fase1=True, fase2=True, fase3=True, fase4=True)
 
 # Atualizar a janela
 pygame.display.update()
