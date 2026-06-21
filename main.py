@@ -1,40 +1,12 @@
-'''import pygame
+'''
 
-# Inicialização
-pygame.init()
-pygame.mixer.init()
 
-# Janela
-LARGURA = 800
-ALTURA = 600
 
-window = pygame.display.set_mode((LARGURA, ALTURA))
-pygame.display.set_caption("Dinamite Racha")
 
 # Relógio
 clock = pygame.time.Clock()
 
-# Fundo do menu
-fundo_menu = pygame.image.load(
-    "assets/imagens/dinamite.png"
-)
 
-# Fundos das fases
-fase1 = pygame.image.load(
-    "assets/imagens/fase1.png"
-)
-
-fase2 = pygame.image.load(
-    "assets/imagens/fase2.png"
-)
-
-fase3 = pygame.image.load(
-    "assets/imagens/fase3.png"
-)
-
-fase4 = pygame.image.load(
-    "assets/imagens/fase4.png"
-)
 
 # Som de colisão
 explosion_sound = pygame.mixer.Sound(
@@ -83,20 +55,46 @@ while rodando:
 
 pygame.quit()'''
 #teste
+# Inicialização
 import pygame
 
 pygame.init()
 
+# Janela
 LARGURA = 800
 ALTURA = 600
 
+tela = pygame.display.set_mode((LARGURA,ALTURA))
+pygame.display.set_caption("Dinamite Racha")
+
+# Fundo do menu
 fundo = pygame.image.load(
     "assets/imagens/dinamite.png"
 )
 
 fundo = pygame.transform.scale(
     fundo,
-    
+    (800, 600)
+)
+
+# Fundos das fases
+fase1 = pygame.transform.scale(
+    pygame.image.load("assets/imagens/fase1.png"),
+    (LARGURA, ALTURA)
+)
+
+fase2 = pygame.transform.scale(
+    pygame.image.load("assets/imagens/fase2.png"),
+    (LARGURA, ALTURA)    
+)
+
+fase3 = pygame.transform.scale(
+    pygame.image.load("assets/imagens/fase3.png"),
+    (LARGURA, ALTURA)
+)
+
+fase4 = pygame.transform.scale(
+    pygame.image.load("assets/imagens/fase4.png"),
     (LARGURA, ALTURA)
 )
 
